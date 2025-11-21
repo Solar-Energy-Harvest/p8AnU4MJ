@@ -5,109 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>灵感画廊 - 创意作品集</title>
+    <title>未来协议：数字前沿解析</title>
     <style>
+        /* 全局重置与基础样式 */
         body {
             overflow: hidden;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto Mono', monospace;
+            /* 科技感等宽字体 */
             margin: 0;
             padding: 0;
-            background-color: #F8F8F8;
-            /* 极浅灰色背景 */
-            color: #333333;
-            /* 深灰色文本 */
+            background-color: #0A0A0A;
+            /* 极深背景 */
+            color: #E0E0E0;
+            /* 亮灰色文本 */
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
         }
 
+        /* 容器 */
         .container {
             max-width: 90%;
+            /* 适应移动端 */
             margin: 0 auto;
-            padding: 30px 0;
+            padding: 20px 0;
         }
 
-        /* 头部 - 简洁艺术，菜单按钮绝对定位在右上角 */
+        /* 头部 - 赛博朋克风格 */
         header {
-            background-color: #FFFFFF;
-            /* 纯白色头部背景 */
-            padding: 25px 20px;
-            /* 调整内边距 */
+            background-color: #0D0D0D;
+            /* 更深的头部背景 */
+            padding: 40px 20px;
             text-align: center;
-            /* 标题居中 */
-            border-bottom: 1px solid #E0E0E0;
-            /* 极细底部边框 */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border-bottom: 2px solid #00FFFF;
+            /* 强调色：青色边框 */
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2);
+            /* 青色光晕阴影 */
             position: relative;
-            /* 为内部绝对定位的元素提供参考 */
             overflow: hidden;
-            margin-bottom: 40px;
+        }
+
+        header::before {
+            /* 顶部几何线条 */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #00FFFF, transparent);
+            animation: scanline 3s infinite linear;
+        }
+
+        @keyframes scanline {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         header h1 {
             margin: 0;
-            font-family: 'Playfair Display', serif;
-            /* 优雅标题字体 */
-            font-size: 2.2em;
-            /* 适应顶部条 */
-            color: #333333;
-            letter-spacing: 1px;
-            /* flex-grow removed as header is no longer flex container for h1 */
+            font-family: 'Orbitron', sans-serif;
+            /* 假设字体可用，未来感标题 */
+            font-size: 2.8em;
+            color: #00FFFF;
+            /* 青色标题 */
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            /* 强光晕效果 */
+            text-transform: uppercase;
         }
 
         header p {
-            display: none;
-            /* 副标题在顶部条中隐藏 */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            color: #B0B0B0;
+            margin-top: 15px;
+            letter-spacing: 1px;
         }
 
-        /* 菜单切换按钮 - 绝对定位在右上角 */
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 2em;
-            /* 图标大小 */
-            color: #A28C5B;
-            /* 强调色 */
-            cursor: pointer;
-            padding: 5px;
-            position: absolute;
-            /* 绝对定位 */
-            top: 25px;
-            /* 距离顶部 */
-            right: 20px;
-            /* 距离右侧 */
-            z-index: 2;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* 侧边导航菜单 */
+        /* 导航菜单 - 发光按钮 */
         nav {
-            position: fixed;
+            background-color: transparent;
+            /* 透明背景 */
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            position: sticky;
             top: 0;
-            right: -280px;
-            /* 默认隐藏在屏幕右侧 */
-            width: 250px;
-            /* 菜单宽度 */
-            height: 100%;
-            background-color: #FFFFFF;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-            transition: right 0.4s ease-in-out;
-            /* 平滑滑入滑出 */
-            z-index: 1001;
-            /* 确保在内容之上 */
-            padding-top: 80px;
-            /* 留出顶部空间 */
-            box-sizing: border-box;
-        }
-
-        nav.is-open {
-            right: 0;
-            /* 菜单打开时滑入 */
+            z-index: 1000;
+            border-bottom: 1px dashed #333333;
+            /* 虚线分隔 */
         }
 
         nav ul {
@@ -115,236 +107,278 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            /* 垂直排列 */
-            gap: 10px;
-            /* 列表项间距 */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
         }
 
         nav ul li a {
-            color: #333333;
+            background-color: #222222;
+            /* 按钮背景 */
+            color: #00FFFF;
+            /* 青色文字 */
             text-decoration: none;
-            padding: 15px 20px;
-            /* 增加点击区域 */
-            border-bottom: 1px solid #E0E0E0;
-            /* 列表项分隔线 */
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-            font-size: 1.1em;
+            padding: 10px 20px;
+            border-radius: 5px;
+            /* 锐利边角 */
+            border: 1px solid #00FFFF;
+            /* 青色边框 */
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1em;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+            /* 按钮发光 */
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #F8F8F8;
-            /* 柔和背景 */
-            color: #A28C5B;
-            /* 强调色文字 */
-            transform: translateX(5px);
-            /* 悬停时右移 */
+            background-color: #00FFFF;
+            /* 悬停时背景变为青色 */
+            color: #0A0A0A;
+            /* 悬停时文字变为深色 */
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            /* 更强发光 */
         }
 
-        nav ul li:last-child a {
-            border-bottom: none;
-            /* 最后一个没有底部边框 */
-        }
-
-        nav ul li a .icon {
-            font-size: 1.5em;
-            margin-right: 15px;
-            color: #A28C5B;
-            /* 图标强调色 */
-        }
-
-        /* 菜单打开时的背景遮罩 */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            /* 半透明黑色 */
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-        }
-
-        .overlay.is-visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        /* 内容区 - 模块化数据块 */
         main {
             padding-top: 30px;
         }
 
-        /* 作品卡片 - 柔和阴影与动画 */
-        .project-card {
-            background-color: #FFFFFF;
+        section {
+            background-color: #1A1A1A;
+            /* 内容区背景 */
             margin-bottom: 40px;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            /* 初始隐藏 */
-            transform: translateY(20px);
-            /* 初始位置 */
+            padding: 30px;
+            border-radius: 8px;
+            /* 适中圆角 */
+            border: 1px solid #333333;
+            /* 边框 */
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-card.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        section::before {
+            /* 边角装饰 */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-top: 2px solid #FF00FF;
+            /* 品红色 */
+            border-left: 2px solid #FF00FF;
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        section::after {
+            /* 边角装饰 */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid #FF00FF;
+            border-right: 2px solid #FF00FF;
         }
 
-        .project-card h2 {
-            font-family: 'Playfair Display', serif;
+        section h2 {
+            font-family: 'Orbitron', sans-serif;
             font-size: 2.2em;
-            color: #333333;
+            color: #00FFFF;
+            /* 青色标题 */
             margin-top: 0;
             margin-bottom: 15px;
+            border-bottom: 1px dashed #333333;
+            /* 虚线分隔 */
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
         }
 
-        .project-card .category {
-            font-size: 0.9em;
-            color: #999999;
+        section h3 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.4em;
+            color: #FF00FF;
+            /* 品红色 */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            color: #C0C0C0;
             margin-bottom: 20px;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .project-card p {
-            font-size: 1.05em;
-            color: #666666;
-            margin-bottom: 25px;
-        }
-
-        .project-card img {
+        section img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 25px auto;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #DDDDDD;
-        }
-
-        .view-project {
-            display: inline-block;
-            background-color: #A28C5B;
-            /* 强调色按钮 */
-            color: #FFFFFF;
-            padding: 12px 28px;
             border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            border: 2px solid #FF00FF;
+            /* 青色边框 */
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            /* 图片发光 */
         }
 
-        .view-project:hover {
-            background-color: #8D7B4F;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        /* 代码块样式 - 终端风格 */
+        pre {
+            background-color: #000000;
+            /* 纯黑背景 */
+            color: #00FF00;
+            /* 亮绿色代码 */
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            margin-bottom: 25px;
+            border: 1px solid #00FF00;
+            /* 绿色边框 */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+            /* 绿色发光 */
         }
 
-        /* 页脚 - 简洁淡雅 */
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #00FF00;
+            /* 亮绿色 */
+        }
+
+        pre code {
+            color: #00FF00;
+        }
+
+        /* 页脚 - 简洁科技感 */
         footer {
-            background-color: #F0F0F0;
-            /* 略深于背景的浅灰色 */
-            color: #777777;
-            padding: 40px 0;
+            background-color: #0D0D0D;
+            /* 页脚背景 */
+            color: #B0B0B0;
+            padding: 25px 0;
             text-align: center;
             font-size: 0.9em;
             margin-top: 50px;
-            border-top: 1px solid #E0E0E0;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.05);
+            border-top: 2px solid #FF00FF;
+            /* 品红色边框 */
+            box-shadow: 0 -8px 25px rgba(255, 0, 255, 0.2);
+            /* 品红色光晕阴影 */
         }
 
-        .social-links a {
-            color: #777777;
+        .footer-links a {
+            color: #FF00FF;
+            /* 品红色链接 */
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.4em;
-            transition: color 0.3s ease, transform 0.2s ease;
+            margin: 0 18px;
+            font-size: 1.2em;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: #A28C5B;
-            /* 强调色 */
-            transform: translateY(-3px) scale(1.1);
+        .footer-links a:hover {
+            color: #00FFFF;
+            /* 悬停时变为青色 */
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
         }
     </style>
     <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
-<body >
+<body>
     <header>
         <div class="container">
-            <h1>灵感画廊</h1>
-            <p>创意与设计的无限可能</p>
-            <button class="menu-toggle" id="menuToggle">&#9776;</button>
+            <h1>未来协议</h1>
+            <p>数字前沿解析与趋势洞察</p>
         </div>
     </header>
 
-    <!-- 侧边导航菜单 -->
-    <nav id="mainNav">
-        <ul>
-            <li><a href="#featured-projects"><span class="icon">&#127912;</span> 精选作品</a></li>
-            <li><a href="#design-gallery"><span class="icon">&#128172;</span> 设计画廊</a></li>
-            <li><a href="#about-me"><span class="icon">&#128100;</span> 关于我</a></li>
-            <li><a href="#contact"><span class="icon">&#128231;</span> 联系</a></li>
-        </ul>
-    </nav>
-
-    <!-- 菜单打开时的背景遮罩 -->
-    <div class="overlay" id="menuOverlay"></div>
-
     <div class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#intro-protocol">引言协议</a></li>
+                <li><a href="#data-structures">数据结构</a></li>
+                <li><a href="#quantum-computing">量子计算</a></li>
+            </ul>
+        </nav>
+
         <main>
-            <section id="featured-projects" class="project-card">
-                <h2>城市脉动：动态品牌设计</h2>
-                <span class="category">品牌设计 / 动态视觉</span>
-                <img src="https://picsum.photos/300/200?random=1&seed=city-pulse" alt="城市脉动项目" class="random-image">
-                <p>一个为现代都市生活品牌设计的视觉识别系统，强调流动性与活力。项目涵盖标志、字体、色彩和动态图形的应用。</p>
-                <a href="#" class="view-project">查看项目</a>
+            <section id="intro-protocol">
+                <h2>引言协议：数字纪元的新范式</h2>
+                <img src="https://picsum.photos/300/200?random=1&id=futuristic-city-1" alt="未来城市景象"
+                    class="random-image">
+                <p>在高速迭代的数字纪元，理解并适应新的技术范式至关重要。本协议旨在为读者提供一份关于未来科技核心概念的深度解析，涵盖从基础架构到前沿应用的方方面面。</p>
+                <p>我们将探索数据流的优化路径、计算能力的边界突破，以及人工智能在伦理层面所面临的挑战与机遇。</p>
             </section>
 
-            <section id="design-gallery" class="project-card">
-                <h2>自然回响：UI/UX概念</h2>
-                <span class="category">UI/UX设计 / 概念探索</span>
-                <img src="https://picsum.photos/300/200?random=2&seed=nature-echo" alt="自然回响项目" class="random-image">
-                <p>探索将自然元素融入数字界面，创造平静、直观的用户体验。设计灵感来源于森林、水流和光影的变化。</p>
-                <a href="#" class="view-project">查看项目</a>
+            <section id="data-structures">
+                <h2>数据结构：信息流的骨架</h2>
+                <img src="https://picsum.photos/300/200?random=2&id=abstract-data-2" alt="抽象数据流" class="random-image">
+                <p>高效的数据结构是构建任何复杂系统的基石。它们决定了信息存储、检索与处理的效率。以下是一个简化版的链表节点定义：</p>
+                <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# 创建链表
+head = Node(10)
+second = Node(20)
+third = Node(30)
+
+head.next = second
+second.next = third
+
+print(head.data) # 输出: 10
+print(head.next.data) # 输出: 20</code></pre>
+                <p>理解这些基本构造是优化大规模数据处理的关键。</p>
             </section>
 
-            <section class="project-card">
-                <h2>未来之声：插画系列</h2>
-                <span class="category">数字插画 / 艺术创作</span>
-                <img src="https://picsum.photos/300/200?random=3&seed=future-sound" alt="未来之声插画" class="random-image">
-                <p>一系列以科技与自然融合为主题的数字插画，通过独特的色彩和构图，描绘未来世界的和谐图景。</p>
-                <a href="#" class="view-project">查看项目</a>
+            <section id="quantum-computing">
+                <h2>量子计算：超越经典极限</h2>
+                <img src="https://picsum.photos/300/200?random=3&id=quantum-circuit-3" alt="量子电路" class="random-image">
+                <p>量子计算代表着计算能力的下一次革命。通过利用量子力学现象，如叠加和纠缠，量子计算机有望解决经典计算机无法企及的问题。</p>
+                <p>尽管仍处于早期阶段，但其在密码学、材料科学和药物发现等领域的潜力已引起广泛关注。</p>
+                <pre><code>// 模拟一个简单的量子门操作
+function applyHadamard(qubitState) {
+    // 假设 qubitState 是 [alpha, beta]
+    // H门操作会将 |0> 变为 (|0> + |1>)/sqrt(2)
+    // |1> 变为 (|0> - |1>)/sqrt(2)
+    const [alpha, beta] = qubitState;
+    const sqrt2 = Math.sqrt(2);
+    return [
+        (alpha + beta) / sqrt2,
+        (alpha - beta) / sqrt2
+    ];
+}
+
+let initialQubit = [1, 0]; // |0> 态
+let afterHadamard = applyHadamard(initialQubit);
+// console.log(afterHadamard); // 输出: [0.707..., 0.707...]</code></pre>
+            </section>
+
+            <section id="ai-ethics">
+                <h2>AI伦理：智能时代的责任边界</h2>
+                <img src="https://picsum.photos/300/200?random=4&id=ai-ethics-4" alt="AI伦理与人类" class="random-image">
+                <p>随着人工智能的普及，关于其伦理影响的讨论变得日益重要。如何确保AI系统的公平性、透明度和可控性，是构建负责任AI的关键。</p>
+                <p>我们必须建立健全的监管框架和道德准则，以引导AI技术朝着有益于人类社会的方向发展。</p>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 灵感画廊. 版权所有.</p>
-            <div class="social-links">
-                <a href="#" target="_blank">Behance</a> |
-                <a href="#" target="_blank">Dribbble</a> |
-                <a href="#" target="_blank">Instagram</a>
+            <p>&copy; 2025 未来协议. 数据流已加密.</p>
+            <div class="footer-links">
+                <a href="#" target="_blank">数据端口</a> |
+                <a href="#" target="_blank">通讯链路</a> |
+                <a href="#" target="_blank">系统日志</a>
             </div>
         </div>
     </footer>
@@ -360,19 +394,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            const menuOverlay = document.getElementById('menuOverlay');
-
-            function toggleMenu() {
-                mainNav.classList.toggle('is-open');
-                menuOverlay.classList.toggle('is-visible');
-            }
-
-            menuToggle.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', toggleMenu);
-
-            document.querySelectorAll('#mainNav ul li a').forEach(anchor => {
+            document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
@@ -380,35 +402,12 @@
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
-                        // Adjust scroll offset to account for header height
                         window.scrollTo({
-                            top: targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0) - 20,
+                            top: targetElement.offsetTop,
                             behavior: 'smooth'
                         });
-                        toggleMenu(); // Close menu after clicking a link
                     }
                 });
-            });
-
-            const projectCards = document.querySelectorAll('.project-card');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            projectCards.forEach(card => {
-                observer.observe(card);
             });
         });
     </script>
